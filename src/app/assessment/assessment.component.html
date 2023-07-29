@@ -1,0 +1,13 @@
+<div class="container" *ngIf="currentUser; ">
+  <header class="jumbotron">
+    <h3>
+      <strong>Overview</strong>
+    </h3>
+  </header>
+  <p>
+    <strong>Overview:</strong>
+    Vous avez Scrobblé {{assessment.nbScrobbles}} fois pour une durée d'écoute de {{millisecondsToMinutes(assessment.totalTimePlayed)}}.
+
+    Vous avez écouté {{assessment.nbArtists}} Artistes pour un total de {{assessment.nbTracks}} tracks différentes.
+  </p>
+</div>

@@ -1,0 +1,22 @@
+stages: # List of stages for jobs, and their order of execution
+  - build
+  - push
+  - deploy
+
+docker-build:
+  stage: build
+  needs: []
+  image: docker:dind
+  script:
+    - docker buildx build . --tag $CI_REGISTRY_IMAGE
+    - echo "docker build complete"
+
+docker-push:
+  stage: push
+  needs: ["docker-build"]
+  image: docker:dind
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  script:
+    - docker push "$CI_REGISTRY_IMAGE"
+    - echo "docker push complete"

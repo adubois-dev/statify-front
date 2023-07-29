@@ -1,25 +1,39 @@
-import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
-  username: string ="";
-  password: string ="";
+export class RegisterComponent implements OnInit {
+  form: any = {
+    username: null,
+    email: null,
+    password: null
+  };
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = '';
 
-  constructor(private http: HttpClient ) {  }
-  save() {
-    let bodyData = {
-      "username" : this.username,
-      "password" : this.password
-    };
-    this.http.post("http://statifyapp:8080/api/auth/register",bodyData,{responseType: 'text'}).subscribe((resultData: any)=>
-    {
-      console.log(resultData.jwtToken);
-      alert("Compte créé");
+  constructor(private authService: AuthService) { }
+
+  ngOnInit(): void {
+  }
+
+  onSubmit(): void {
+    const { username, email, password } = this.form;
+
+    this.authService.register(username, email, password).subscribe({
+      next: data => {
+        console.log(data);
+        this.isSuccessful = true;
+        this.isSignUpFailed = false;
+      },
+      error: err => {
+        this.errorMessage = err.error.message;
+        this.isSignUpFailed = true;
+      }
     });
   }
 }

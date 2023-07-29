@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "statify_website": {
+    "angular-15-jwt-auth": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/statify_website",
+            "outputPath": "dist/angular-15-jwt-auth",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "statify_website:build:production"
+              "browserTarget": "angular-15-jwt-auth:build:production"
             },
             "development": {
-              "browserTarget": "statify_website:build:development"
+              "browserTarget": "angular-15-jwt-auth:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "statify_website:build"
+            "browserTarget": "angular-15-jwt-auth:build"
           }
         },
         "test": {
