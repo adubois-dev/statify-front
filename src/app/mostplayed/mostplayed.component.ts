@@ -11,7 +11,7 @@ export class MostplayedComponent implements OnInit{
 
   currentUser: any;
   top50: any
-  private baseUrl = 'http://statifyapp:8080/api/historic/user/mostplayed';
+  private baseUrl = 'http://localhost:8080/api/historic/user/mostplayed';
 
 
   constructor(private storageService: StorageService, private httpClient: HttpClient) { }

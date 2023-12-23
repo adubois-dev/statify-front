@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FileUploadService {
-  private baseUrl = 'http://statifyapp:8080/api/upload';
+  private baseUrl = 'http://localhost:8080/api/upload';
 
   constructor(private http: HttpClient) { }
 

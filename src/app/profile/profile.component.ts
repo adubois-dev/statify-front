@@ -10,7 +10,7 @@ import {HttpClient, HttpRequest} from "@angular/common/http";
 export class ProfileComponent implements OnInit {
   currentUser: any;
   spotifyUserInfos: any
-  private baseUrl = 'http://statifyapp:8080/api/spUser/user/';
+  private baseUrl = 'http://localhost:8080/api/spUser/user/';
 
 
   constructor(private storageService: StorageService, private httpClient: HttpClient) {

@@ -12,7 +12,7 @@ export class AssessmentComponent implements OnInit{
 
   currentUser: any;
   assessment: any
-  private baseUrl = 'http://statifyapp:8080/api/historic/user/assessment';
+  private baseUrl = 'http://localhost:8080/api/historic/user/assessment';
 
 
   constructor(private storageService: StorageService, private httpClient: HttpClient) { }
